@@ -30,6 +30,6 @@ public class Tweet {
     }
 
     public String getFormattedTimestamp() {
-        return TimeFormatter.getTimeStamp(createdAt);
+        return TimeFormatter.getTimeDifference(createdAt);
     }
 }
