@@ -11,9 +11,25 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/twitter_blue"
         android:onClick="loginToRest"
-        android:text="@string/login_label" />
+        android:text="@string/login_label"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvTweetPhrase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="120dp"
+        android:text="Never miss a Tweet."
+        android:textColor="#040404"
+        android:textSize="16sp" />
+
 
 </RelativeLayout>
