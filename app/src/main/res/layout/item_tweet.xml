@@ -5,15 +5,17 @@
     android:id="@+id/tweetContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    android:layout_marginTop="5dp">
+
 
     <ImageView
         android:id="@+id/ivProfileImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
+
         android:layout_alignParentStart="false"
         android:layout_alignParentTop="false"
-        android:layout_marginStart="0dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -21,9 +23,10 @@
         android:id="@+id/tvScreenName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentTop="false"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/ivProfileImage"
         android:textColor="#000000"
         tools:text="UserName1234" />
@@ -35,6 +38,7 @@
         android:layout_below="@id/tvScreenName"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
         android:layout_toEndOf="@+id/ivProfileImage"
         android:autoLink="all"
         android:linksClickable="true"
@@ -45,10 +49,11 @@
         android:id="@+id/tvTimestamp"
         android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentTop="false"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
         android:textAlignment="textEnd"
         android:textColor="#000000"
         tools:text="12h" />
@@ -60,4 +65,5 @@
         android:layout_below="@id/tvBody"
         android:layout_marginTop="10dp"
         android:background="@color/medium_gray" />
+
 </RelativeLayout>
