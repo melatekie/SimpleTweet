@@ -7,14 +7,15 @@
     <application
         android:name=".TwitterApp"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher_twitter_round"
+        android:label="TweetTweet"
         android:theme="@style/AppTheme">
         <activity android:name=".DetailActivity"></activity>
-        <activity android:name=".TimelineActivity" />
+        <activity android:name=".TimelineActivity"
+            android:label=""/>
         <activity
             android:name=".LoginActivity"
-            android:label="LogIn"
+
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

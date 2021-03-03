@@ -26,10 +26,29 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
 
+    <ImageView
+        android:id="@+id/ivTweetIcon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/twitter_icon"/>
+
+    <TextView
+        android:id="@+id/tvTweetPhrase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="250dp"
+        android:text="Never miss a Tweet."
+        android:textColor="#040400"
+        android:textSize="16sp" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="200dp"
         android:layout_marginEnd="20dp"
@@ -39,15 +58,7 @@
         android:text="@string/login_label"
         android:textColor="#FFFFFF" />
 
-    <TextView
-        android:id="@+id/tvTweetPhrase"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="120dp"
-        android:text="Never miss a Tweet."
-        android:textColor="#040404"
-        android:textSize="16sp" />
+
 
 
 </RelativeLayout>

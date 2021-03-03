@@ -25,7 +25,7 @@ public class DetailActivity extends AppCompatActivity {
     TextView tvScreenName;
     TextView tvTimestamp;
     ImageView ivMediaUrl;
-    VideoView videoView;
+    //VideoView videoView;
 
 
     @Override
@@ -52,8 +52,8 @@ public class DetailActivity extends AppCompatActivity {
         Log.d("DetailAct", "Before Image set to visible");
 
         int radius = 30;
-        if(tweet.mediaUrl != null) {
-            Log.d("DetailAct", "Image set to visible");
+        if(tweet.type.equals("photo")) {
+            Log.d("DetailAct", "Image set to visible " + tweet.mediaUrl);
             ivMediaUrl.setVisibility(View.VISIBLE);
             //if (tweet.type == "video") {
 
@@ -64,8 +64,8 @@ public class DetailActivity extends AppCompatActivity {
                         .into(ivMediaUrl);
             //}
         } else {
-            Log.d("DetailAct", "Image set to invisible");
-            ivMediaUrl.setVisibility(View.VISIBLE);
+            Log.d("DetailAct", "Image set to invisible " + tweet.mediaUrl);
+            ivMediaUrl.setVisibility(View.GONE);
         }
         Log.d("DetailAct", "After Image set to visible");
 

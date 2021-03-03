@@ -14,9 +14,20 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         app:titleTextColor="@android:color/white">
+
+        <ImageView
+            android:id="@+id/ivToolbarIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+
+            app:srcCompat="@drawable/twitter_ic_w" />
+
+
     </androidx.appcompat.widget.Toolbar>
 
-    <TextView
+
+
+    <!--TextView
         android:id="@+id/tvToolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,7 +36,7 @@
         android:text="TweetTweet"
         android:textColor="@android:color/white"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold" /-->
 
     <ImageView
         android:id="@+id/ivProfileImage"
@@ -112,4 +123,5 @@
         android:layout_toEndOf="@+id/ivProfileImage"
         android:contentDescription="@string/app_name"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
 </RelativeLayout>

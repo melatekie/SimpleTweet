@@ -1,5 +1,7 @@
 package com.codepath.apps.restclienttemplate.models;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,6 +20,7 @@ public class Tweet {
     public String type;
 
     public User user;
+    public Media media;
 
     //empty constructor needed by the Parceler Library
     public Tweet() {}
@@ -31,11 +34,14 @@ public class Tweet {
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
 
         JSONObject entities = jsonObject.getJSONObject("entities");
-        if(entities.has("media")) {
-            JSONArray media = entities.getJSONArray("media");
-            JSONObject mediaObject = (JSONObject) media.get(0);
-            //tweet.type = mediaObject.getString("type");
-            tweet.mediaUrl = mediaObject.getString("media_url");
+        if(entities.has("media") ) {
+            JSONObject media = entities.getJSONArray("media").getJSONObject(0);
+            //JSONObject mediaObject = media.getJSONObject(0);
+            tweet.type = media.getString("type");
+            tweet.mediaUrl = media.getString("media_url");
+        } else {
+            tweet.type = "";
+            tweet.mediaUrl = "";
         }
 
         return tweet;
