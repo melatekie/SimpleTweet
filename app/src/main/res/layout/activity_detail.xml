@@ -19,7 +19,7 @@
             android:id="@+id/ivToolbarIcon"
             android:layout_width="30dp"
             android:layout_height="30dp"
-
+            android:contentDescription="@string/image"
             app:srcCompat="@drawable/twitter_ic_w" />
 
 
@@ -115,13 +115,13 @@
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:layout_below="@+id/tvBody"
-
+        android:scaleType="fitXY"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
         android:layout_toEndOf="@+id/ivProfileImage"
-        android:contentDescription="@string/app_name"
+        android:contentDescription="@string/image"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
 </RelativeLayout>

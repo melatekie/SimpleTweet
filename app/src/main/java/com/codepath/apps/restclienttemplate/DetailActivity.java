@@ -2,6 +2,7 @@ package com.codepath.apps.restclienttemplate;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -49,25 +50,23 @@ public class DetailActivity extends AppCompatActivity {
         tvName.setText(tweet.user.name);
         tvScreenName.setText(tweet.user.screenName);
         tvTimestamp.setText(tweet.getFormattedTimestamp());
-        Log.d("DetailAct", "Before Image set to visible");
+        //Log.d("DetailAct", "Before Image set to visible");
 
+        //not working
         int radius = 30;
         if(tweet.type.equals("photo")) {
-            Log.d("DetailAct", "Image set to visible " + tweet.mediaUrl);
-            ivMediaUrl.setVisibility(View.VISIBLE);
-            //if (tweet.type == "video") {
-
-            //} else {
-
+            Log.d("DetailAct", "Image set to visible " + tweet.mediaUrl + " Type: " + tweet.type);
+            //ivMediaUrl.setVisibility(View.VISIBLE);
                 Glide.with(this).load(tweet.mediaUrl)
-                        .transform(new FitCenter(), new RoundedCorners(radius))
+                        .transform( new RoundedCorners(radius))
+                        .override(200)
                         .into(ivMediaUrl);
-            //}
+
         } else {
-            Log.d("DetailAct", "Image set to invisible " + tweet.mediaUrl);
-            ivMediaUrl.setVisibility(View.GONE);
+            Log.d("DetailAct", "Image set to invisible " + tweet.type);
+            //ivMediaUrl.setVisibility(View.GONE);
         }
-        Log.d("DetailAct", "After Image set to visible");
+        //Log.d("DetailAct", "After Image set to visible");
 
     }
 }

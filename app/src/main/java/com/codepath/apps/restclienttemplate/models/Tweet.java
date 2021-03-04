@@ -34,14 +34,15 @@ public class Tweet {
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
 
         JSONObject entities = jsonObject.getJSONObject("entities");
-        if(entities.has("media") ) {
+        if (entities.has("media")){
             JSONObject media = entities.getJSONArray("media").getJSONObject(0);
-            //JSONObject mediaObject = media.getJSONObject(0);
+            //Log.i("Tweet", "media: " + media);
             tweet.type = media.getString("type");
             tweet.mediaUrl = media.getString("media_url");
+            //Log.i("Tweet", "medUrl: " + tweet.mediaUrl);
         } else {
             tweet.type = "";
-            tweet.mediaUrl = "";
+            tweet.mediaUrl = "empty";
         }
 
         return tweet;
