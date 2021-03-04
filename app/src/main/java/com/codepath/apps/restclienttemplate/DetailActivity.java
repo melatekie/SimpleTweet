@@ -53,7 +53,7 @@ public class DetailActivity extends AppCompatActivity {
         //Log.d("DetailAct", "Before Image set to visible");
 
         //not working
-        int radius = 30;
+        /*int radius = 30;
         if(tweet.type.equals("photo")) {
             Log.d("DetailAct", "Image set to visible " + tweet.mediaUrl + " Type: " + tweet.type);
             //ivMediaUrl.setVisibility(View.VISIBLE);
@@ -65,7 +65,7 @@ public class DetailActivity extends AppCompatActivity {
         } else {
             Log.d("DetailAct", "Image set to invisible " + tweet.type);
             //ivMediaUrl.setVisibility(View.GONE);
-        }
+        }*/
         //Log.d("DetailAct", "After Image set to visible");
 
     }

@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import org.parceler.Parcel;
 
 @Parcel
+
 public class Media {
 
     public String type;
