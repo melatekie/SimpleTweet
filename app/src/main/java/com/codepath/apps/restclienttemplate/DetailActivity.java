@@ -48,8 +48,8 @@ public class DetailActivity extends AppCompatActivity {
                 .into(ivProfileImage);
         tvBody.setText(tweet.body);
         tvName.setText(tweet.user.name);
-        tvScreenName.setText(tweet.user.screenName);
-        tvTimestamp.setText(tweet.getFormattedTimestamp());
+        tvScreenName.setText(" @" + tweet.user.screenName);
+        tvTimestamp.setText(" · " + tweet.getFormattedTimestamp());
         //Log.d("DetailAct", "Before Image set to visible");
 
         //not working
