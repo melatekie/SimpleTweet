@@ -47,17 +47,14 @@
                    android:layout_height="wrap_content"
                    android:layout_marginStart="15dp"
                    android:layout_marginTop="15dp"
-                   app:srcCompat="@drawable/ic_vector_home" />
+                   app:srcCompat="@drawable/ic_vector_home"
+                   android:contentDescription="@string/image"/>
 
             </androidx.appcompat.widget.Toolbar>
 
 
 
         </com.google.android.material.appbar.AppBarLayout>
-
-
-
-
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeContainer"
@@ -74,5 +71,21 @@
                 android:layout_below="@id/toolbar" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabCompose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/twitter_blue"
+            android:clickable="true"
+            android:contentDescription="@string/image"
+            android:focusable="true"
+            android:src="@drawable/ic_vector_compose"
+            android:tint="#ffffff"
+            app:fabSize="auto"
+            app:layout_anchorGravity="bottom|right|end" />
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </RelativeLayout>

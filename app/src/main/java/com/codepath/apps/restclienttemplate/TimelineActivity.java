@@ -22,6 +22,7 @@ import com.codepath.apps.restclienttemplate.models.TweetDao;
 import com.codepath.apps.restclienttemplate.models.TweetWithUser;
 import com.codepath.apps.restclienttemplate.models.User;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,7 +46,6 @@ public class TimelineActivity extends AppCompatActivity {
     TweetsAdapter adapter;
     SwipeRefreshLayout swipeContainer;
     EndlessRecyclerViewScrollListener scrollListener;
-    //Button btnLogOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,18 +75,18 @@ public class TimelineActivity extends AppCompatActivity {
         // Make sure the toolbar exists in the activity and is not null
         setSupportActionBar(toolbar);
 
-        //btnLogOut = findViewById(R.id.btnLogOut);
-
-        /*btnLogOut.setOnClickListener(new View.OnClickListener() {
+        //Floating compose button TODO does it immediate show tweet after composed
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabCompose);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("user", "logOut success");
-                Intent i = new Intent(TimelineActivity.this, LoginActivity.class);
-                startActivity(i);
-                TimelineActivity.finish();
-                clearAccessToken()
+                Log.i(TAG, "fab compose");
+                Intent i = new Intent(TimelineActivity.this, ComposeActivity.class);
+                startActivityForResult(i, REQUEST_CODE);
+
             }
-        });*/
+        });
+
 
 
         //Find the recycler view
@@ -124,6 +124,7 @@ public class TimelineActivity extends AppCompatActivity {
         populateHomeTimeLine();
     }
 
+    //appbar compose - not used
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -131,7 +132,8 @@ public class TimelineActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
+    //appbar compose - not used
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.compose) {
             //Compose icon has been selected
@@ -141,7 +143,7 @@ public class TimelineActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
