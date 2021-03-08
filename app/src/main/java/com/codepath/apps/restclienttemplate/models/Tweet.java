@@ -30,9 +30,9 @@ public class Tweet {
     @ColumnInfo
     public long userId;
 
-    @ColumnInfo
+    @Ignore
     public String mediaUrl;
-    @ColumnInfo
+    @Ignore
     public String type;
 
     @Ignore
@@ -75,7 +75,11 @@ public class Tweet {
         return tweets;
     }
 
-    public String getFormattedTimestamp() {
+    public String getTimeDiff() {
         return TimeFormatter.getTimeDifference(createdAt);
+    }
+
+    public String getTimestamp() {
+        return TimeFormatter.getTimeStamp(createdAt);
     }
 }

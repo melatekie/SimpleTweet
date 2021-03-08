@@ -75,7 +75,7 @@ public class TimelineActivity extends AppCompatActivity {
         // Make sure the toolbar exists in the activity and is not null
         setSupportActionBar(toolbar);
 
-        //Floating compose button TODO does it immediate show tweet after composed
+        //Floating compose button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabCompose);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

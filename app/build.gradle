@@ -5,6 +5,10 @@ def apikeyProperties = new Properties()
 apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
 
 android {
+
+    buildFeatures {
+        dataBinding true
+    }
     compileSdkVersion 28
 
     defaultConfig {
