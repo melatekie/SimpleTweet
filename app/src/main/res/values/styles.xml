@@ -7,7 +7,6 @@
             backward-compatibility can go here.
         -->
 
-
     </style>
 
     <!-- Application theme. -->
@@ -15,7 +14,15 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
         <item name="colorPrimary">@color/twitter_blue</item>
         <item name="colorPrimaryDark">#000000</item>
+        <item name="buttonStyle">@style/ButtonCustom</item>
 
+    </style>
+
+    <style name="ButtonCustom" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_custom</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>

@@ -30,9 +30,9 @@ public class Tweet {
     @ColumnInfo
     public long userId;
 
-    @Ignore
+    @ColumnInfo
     public String mediaUrl;
-    @Ignore
+    @ColumnInfo
     public String type;
 
     @Ignore

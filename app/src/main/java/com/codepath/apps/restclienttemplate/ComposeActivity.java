@@ -39,6 +39,7 @@ public class ComposeActivity extends AppCompatActivity {
 
         etCompose = findViewById(R.id.etCompose);
         btnTweet = findViewById(R.id.btnTweet);
+        btnTweet.setEnabled(false);
 
         //Displays character count
         etCompose.addTextChangedListener(new TextWatcher() {
@@ -58,8 +59,8 @@ public class ComposeActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 String text = s.toString();
                 if (text.isEmpty()) {
-                    btnTweet.setClickable(false);
-                } else btnTweet.setClickable(text.length() <= MAX_TWEET_LENGTH);
+                    btnTweet.setEnabled(false);
+                } else btnTweet.setEnabled(text.length() <= MAX_TWEET_LENGTH);
                 Log.i(TAG, "Fires right after the text has changed: Called afterTextChanged");
             }
         });
@@ -71,6 +72,7 @@ public class ComposeActivity extends AppCompatActivity {
                 final String tweetContent = etCompose.getText().toString();
                 if (tweetContent.isEmpty()) {
                     Toast.makeText(ComposeActivity.this,"Sorry, your tweet cannot be empty", Toast.LENGTH_LONG).show();
+
                     return;
                 }
                 if (tweetContent.length() > MAX_TWEET_LENGTH) {
