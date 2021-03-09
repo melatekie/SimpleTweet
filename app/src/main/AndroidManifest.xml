@@ -10,7 +10,7 @@
         android:icon="@drawable/ic_launcher_twitter_round"
         android:label="TweetTweet"
         android:theme="@style/AppTheme">
-        <activity android:name=".ComposeActivity"></activity>
+        <activity android:name=".ComposeActivity" />
         <activity android:name=".DetailActivity"
             android:largeHeap="true"/>
         <activity

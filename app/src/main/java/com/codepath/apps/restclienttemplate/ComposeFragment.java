@@ -1,17 +1,21 @@
 package com.codepath.apps.restclienttemplate;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
@@ -21,25 +25,49 @@ import org.parceler.Parcels;
 
 import okhttp3.Headers;
 
-public class ComposeActivity extends AppCompatActivity {
+import static android.app.Activity.RESULT_OK;
 
-    public static final String TAG = "ComposeActivity";
+public class ComposeFragment extends DialogFragment {
+
+    public static final String TAG = "ComposeFragment";
     public static final int MAX_TWEET_LENGTH = 140;
     EditText etCompose;
     Button btnTweet;
 
     TwitterClient client;
+    public ComposeFragment() { }
+
+    public static ComposeFragment newInstance() {
+        ComposeFragment fragment = new ComposeFragment();
+
+
+        return fragment;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_compose);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_compose, container);
+    }
 
-        client = TwitterApp.getRestClient(this);
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        // Get field from view
+        client = TwitterApp.getRestClient(view.getContext());
 
-        etCompose = findViewById(R.id.etCompose);
-        btnTweet = findViewById(R.id.btnTweet);
+        etCompose = view.findViewById(R.id.etCompose);
+        btnTweet = view.findViewById(R.id.btnTweet);
         btnTweet.setEnabled(false);
+
+        // Fetch arguments from bundle and set title
+
+        getDialog().setTitle("New Tweet");
+
+        // Show soft keyboard automatically and request focus to field
+        etCompose.requestFocus();
+        getDialog().getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 
         //Displays character count
         etCompose.addTextChangedListener(new TextWatcher() {
@@ -71,15 +99,15 @@ public class ComposeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String tweetContent = etCompose.getText().toString();
                 if (tweetContent.isEmpty()) {
-                    Toast.makeText(ComposeActivity.this,"Sorry, your tweet cannot be empty", Toast.LENGTH_LONG).show();
+                    Toast.makeText(v.getContext(),"Sorry, your tweet cannot be empty", Toast.LENGTH_LONG).show();
 
                     return;
                 }
                 if (tweetContent.length() > MAX_TWEET_LENGTH) {
-                    Toast.makeText(ComposeActivity.this,"Sorry, your tweet is too long", Toast.LENGTH_LONG).show();
+                    Toast.makeText(v.getContext(),"Sorry, your tweet is too long", Toast.LENGTH_LONG).show();
                     return;
                 }
-                Toast.makeText(ComposeActivity.this, tweetContent, Toast.LENGTH_LONG).show();
+                Toast.makeText(v.getContext(), tweetContent, Toast.LENGTH_LONG).show();
                 //Make an API call to Twitter to publish the tweet
                 client.publishTweet(tweetContent, new JsonHttpResponseHandler() {
                     @Override
@@ -91,9 +119,9 @@ public class ComposeActivity extends AppCompatActivity {
                             Intent intent = new Intent();
                             intent.putExtra("tweet", Parcels.wrap(tweet));
                             //set result code and bundle data for response
-                            setResult(RESULT_OK, intent);
+                            getActivity().setResult(RESULT_OK, intent);
                             //closes the activity, pass data to parent
-                            finish();
+                            getActivity().finish();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

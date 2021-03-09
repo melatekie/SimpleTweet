@@ -3,6 +3,7 @@ package com.codepath.apps.restclienttemplate;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -81,8 +82,7 @@ public class TimelineActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "fab compose");
-                Intent i = new Intent(TimelineActivity.this, ComposeActivity.class);
-                startActivityForResult(i, REQUEST_CODE);
+                showTweetDialog();
 
             }
         });
@@ -122,6 +122,12 @@ public class TimelineActivity extends AppCompatActivity {
         });
 
         populateHomeTimeLine();
+    }
+
+    private void showTweetDialog() {
+        FragmentManager fm = getSupportFragmentManager();
+        ComposeFragment composeFragment = ComposeFragment.newInstance();
+        composeFragment.show(fm, "fragment_compose");
     }
 
     //appbar compose - not used
